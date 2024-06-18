@@ -1,0 +1,13 @@
+.tagWrapper{
+    background: #122b39;
+    text-align: center;
+    border-radius:8px ;
+    width: fit-content;
+    padding: 0.1rem 0.7rem 0.1rem 0.7rem;
+}
+
+.tagText{
+    color: #55d3c1;
+    font-size: small;
+    font-weight: bolder;
+}

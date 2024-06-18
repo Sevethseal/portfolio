@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #7d8a9f;
+}
+html{
+ background-color: rgb(15 23 42 /1);
+
+
+}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+  }
+
+.layout{
+    background:radial-gradient(600px at 1257px 535px, rgba(29, 78, 216, 0.15), transparent 80%);
+    display: flex;
+    justify-content: center;
+    padding: 10rem 10rem 2rem 10rem;
+
+
+}

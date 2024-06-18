@@ -1,0 +1,103 @@
+
+.introduction{
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+
+ 
+}
+.introduction >div{
+    flex: 1; /* This makes each child div take up an equal amount of space */
+
+}
+.headingSection{
+    display: flex;
+    flex-direction: column;
+}
+
+.heading{
+font-size: 3rem;
+font-weight: bolder;
+margin: 0 0 1rem 0;
+color: white;
+}
+
+.title{
+    font-size: 1.25rem;
+    font-weight: 500 ;
+    color: white;
+}
+.tagLine{
+    margin: 1rem 0 1rem 0;
+    max-width: 24.4rem;
+    color: rgb(148 163 184);
+}
+
+.navigationSection div {
+ display: flex;
+ width: 10rem;
+ flex-direction: row-reverse;
+ justify-content: flex-end;
+ align-items: center;
+ text-align: right;
+ gap: 1rem;
+ cursor: pointer;
+ flex-grow: 1;
+ transition: 0.6s;
+
+
+
+}
+.navTab{
+    margin: 0.5rem 0 0.5rem 0;
+    color: white;
+}
+  
+.line {
+    min-width: 6rem;
+    max-width: 100%;
+    transition: width 0.5s ease;
+    border: 1px solid white;
+}
+
+
+
+.social div{
+    width: 1.5rem;
+    
+}
+
+
+.social{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+.hoverClass:hover{
+    transition:  0.5s ;
+
+ width: 15rem !important;
+}
+.navTab:hover{
+ font-weight: bolder !important;
+}
+.detail{
+   position: sticky;
+   top: 0;
+   z-index: 1000;
+   height: 15rem;
+   padding: 2rem;
+   
+}
+.experienceList{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.75rem;
+    margin-top: 2rem;
+}
+.aboutSection{
+    padding: 2rem;
+    max-width: 50rem;
+}
