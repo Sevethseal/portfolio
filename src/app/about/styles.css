@@ -44,9 +44,6 @@ color: white;
  cursor: pointer;
  flex-grow: 1;
  transition: 0.6s;
-
-
-
 }
 .navTab{
     margin: 0.5rem 0 0.5rem 0;
@@ -64,7 +61,6 @@ color: white;
 
 .social div{
     width: 1.5rem;
-    
 }
 
 
@@ -77,9 +73,25 @@ color: white;
 }
 .hoverClass:hover{
     transition:  0.5s ;
-
+  font-weight: bolder;
+ width: 13rem !important;
+}
+.sectionOnFocusClass{
+    transition:  0.5s ;
+    font-weight: bolder;
+    width: 13rem !important;
+}
+.sectionOnFocusClassExperience{
+    transition:  0.5s ;
+    font-weight: bolder;
+    width: 15rem !important;
+}
+.experienceHover:hover{
+    font-weight: bolder;
+    transition:  0.5s ;
  width: 15rem !important;
 }
+
 .navTab:hover{
  font-weight: bolder !important;
 }

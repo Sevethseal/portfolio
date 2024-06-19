@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 import "./styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,7 +11,48 @@ import {
 import ExperienceComponent from "../components/contentSpace/contentspace";
 import recipe from "../../../public/recipe.png";
 
+interface SectionRefs {
+  about: HTMLDivElement | null;
+  experience: HTMLDivElement | null;
+  project: HTMLDivElement | null;
+}
+
 const About = () => {
+  const [activeSection, setActiveSection] = useState("about");
+
+  const sections = useRef<SectionRefs>({
+    about: null,
+    experience: null,
+    project: null,
+  });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log("hiii");
+      const sectionEntries = Object.entries(sections.current);
+      for (const [key, value] of sectionEntries) {
+        if (value) {
+          const rect = value.getBoundingClientRect();
+          if (
+            rect.top <= window.innerHeight / 2 &&
+            rect.bottom >= window.innerHeight / 2
+          ) {
+            console.log("hiii");
+            setActiveSection(key);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  console.log(activeSection, "activeSection");
+  console.log(activeSection, "activeSection");
+
   return (
     <div className="introduction">
       <header className="detail">
@@ -23,20 +65,46 @@ const About = () => {
           </span>
         </div>
         <div className="navigationSection">
-          <div className="hoverClass">
-            <a className="navTab" href="#about">
+          <div
+            className={
+              activeSection === "about" ? "sectionOnFocusClass" : "hoverClass"
+            }
+          >
+            <a
+              className="navTab"
+              href="#about"
+              onFocus={() => setActiveSection("about")}
+            >
               ABOUT
             </a>
             <div className="line" />
           </div>
-          <div className="hoverClass">
-            <a className="navTab" href="#experience">
+          <div
+            className={
+              activeSection === "experience"
+                ? "sectionOnFocusClassExperience"
+                : "experienceHover"
+            }
+          >
+            <a
+              className="navTab"
+              href="#experience"
+              onFocus={() => setActiveSection("experience")}
+            >
               EXPERIENCE
             </a>
             <div className="line" />
           </div>
-          <div className="hoverClass">
-            <a className="navTab" href="#project">
+          <div
+            className={
+              activeSection === "project" ? "sectionOnFocusClass" : "hoverClass"
+            }
+          >
+            <a
+              className="navTab"
+              href="#project"
+              onFocus={() => setActiveSection("project")}
+            >
               PROJECTS
             </a>
             <div className="line" />
@@ -58,7 +126,13 @@ const About = () => {
         </div>
       </header>
       <div>
-        <div className="aboutSection" id="about">
+        <div
+          className="aboutSection"
+          id="about"
+          ref={(el) => {
+            sections.current.about = el;
+          }}
+        >
           Back in 2012, I decided to try my hand at creating custom Tumblr
           themes and tumbled head first into the rabbit hole of coding and web
           development. Fast-forward to today, and I’ve had the privilege of
@@ -73,7 +147,13 @@ const About = () => {
           reading, hanging out with my wife and two cats, or running around
           Hyrule searching for Korok seeds .
         </div>
-        <div className="experienceList" id="experience">
+        <div
+          className="experienceList"
+          id="experience"
+          ref={(el) => {
+            sections.current.experience = el;
+          }}
+        >
           <ExperienceComponent />
           <ExperienceComponent />
           <ExperienceComponent />
@@ -81,11 +161,17 @@ const About = () => {
           <ExperienceComponent />
           <ExperienceComponent />
         </div>
-        <div id="project">
+        <div
+          id="project"
+          ref={(el) => {
+            sections.current.project = el;
+          }}
+        >
           <ExperienceComponent isProjectComponent={true} image={recipe} />
           <ExperienceComponent isProjectComponent={true} image={recipe} />
+
           <ExperienceComponent isProjectComponent={true} image={recipe} />
-          <ExperienceComponent isProjectComponent={true} image={recipe} />
+
           <ExperienceComponent isProjectComponent={true} image={recipe} />
         </div>
       </div>
