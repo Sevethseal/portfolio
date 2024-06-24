@@ -13,4 +13,6 @@ module.exports = {
   assetPrefix: assetPrefix,
   basePath: basePath,
   trailingSlash: true,
+  output: 'export',
+  reactStrictMode: true,
 }
