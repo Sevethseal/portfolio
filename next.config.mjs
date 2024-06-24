@@ -1,5 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 // next.config.mjs
+// updated
 const isGithubActions = process.env.GITHUB_ACTIONS || false
 
 let assetPrefix = ''
