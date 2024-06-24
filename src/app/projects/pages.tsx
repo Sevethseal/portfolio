@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Projects = () => {
-  return <div>homePageeee</div>
+  return <div>homePages</div>
 }
 
 export default Projects
