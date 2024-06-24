@@ -8,7 +8,6 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky",
-    "export": "next export",
     "deploy": "next build"
   },
   "dependencies": {
