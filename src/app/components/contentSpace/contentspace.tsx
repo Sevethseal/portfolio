@@ -1,78 +1,75 @@
-"use client";
-import React, { useState } from "react";
-import "./styles.css";
-import Tag from "../Tag";
-import Image, { StaticImageData } from "next/image";
+'use client'
+import React, { useState } from 'react'
+import './styles.css'
+import Tag from '../Tag'
+import Image, { StaticImageData } from 'next/image'
 
+type Experience = {
+  title: string
+  timePeriod?: string
+  description: string
+  technologies: string[]
+  navigationLink: string
+  image?: StaticImageData
+}
 type TileBaseProps = {
-  isProjectComponent?: boolean;
-  image?: StaticImageData;
-};
+  isProjectComponent?: boolean
+  experience?: Experience
+}
 
 const ExperienceComponent: React.FC<TileBaseProps> = (props: TileBaseProps) => {
-  const [isMouseHovered, setIsMouseHovered] = useState(false);
-  const { isProjectComponent } = props;
+  const [isMouseHovered, setIsMouseHovered] = useState(false)
+  const { isProjectComponent } = props
 
-  const { image } = props;
+  const { experience } = props
 
   const setMouseHoverTrue = () => {
-    setIsMouseHovered(true);
-  };
+    setIsMouseHovered(true)
+  }
   const setMouseHoverFalse = () => {
-    setIsMouseHovered(false);
-  };
+    setIsMouseHovered(false)
+  }
 
   return (
     <div
       className="experienceWrapper"
       onMouseEnter={setMouseHoverTrue}
       onMouseLeave={setMouseHoverFalse}
+      onClick={() =>
+        window.open(experience?.navigationLink, '_blank', 'noopener,noreferrer')
+      }
     >
-      {isProjectComponent && image ? (
+      {isProjectComponent && experience?.image ? (
         <div className="projectImageWrapper">
-          <Image src={image} alt="image" className="projectImage" />
+          <Image src={experience.image} alt="image" className="projectImage" />
         </div>
       ) : (
-        <span className="timePeriod">2024 — Present</span>
+        <span className="timePeriod">{experience?.timePeriod}</span>
       )}
       <div>
         <div className="experienceHeadingSection">
           <h4
             className={
-              isMouseHovered ? "mouseHoveredHeading" : "mouseNotHoveredHeading"
+              isMouseHovered ? 'mouseHoveredHeading' : 'mouseNotHoveredHeading'
             }
           >
-            Senior Frontend Engineer, Accessibility at Klaviyo
+            {experience?.title}
           </h4>
         </div>
 
         <div className="experienceContent">
-          <p className="experienceParagraph">
-            Build and maintain critical components used to construct Klaviyo’s
-            frontend, across the whole product. Work closely with
-            cross-functional teams, including developers, designers, and product
-            managers, to implement and advocate for best practices in web
-            accessibility.
-          </p>
-          {!isProjectComponent && (
+          <p className="experienceParagraph">{experience?.description}</p>
+          {
             <div className="experienceTagSection">
-              {[
-                "JavaScript",
-                "React",
-                "TypeScript",
-                "JavaScript",
-                "JavaScript",
-                "JavaScript",
-                "JavaScript",
-              ].map((text: string) => (
+              {experience?.technologies.map((text: string) => (
                 <Tag key={text} text={text} />
               ))}
             </div>
-          )}
+          }
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ExperienceComponent;
+export default ExperienceComponent

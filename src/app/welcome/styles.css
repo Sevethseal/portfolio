@@ -1,0 +1,183 @@
+.introduction {
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+}
+.introduction > div {
+  flex: 1; /* This makes each child div take up an equal amount of space */
+}
+.headingSection {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: bolder;
+  margin: 0 0 1rem 0;
+  color: white;
+}
+
+.title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: white;
+}
+.tagLine {
+  margin: 1rem 0 1rem 0;
+  max-width: 24.4rem;
+  color: rgb(148 163 184);
+}
+
+.navigationSection div {
+  display: flex;
+  width: 10rem;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: right;
+  gap: 1rem;
+  cursor: pointer;
+  flex-grow: 1;
+  transition: 0.6s;
+}
+.navTab {
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+.line {
+  min-width: 6rem;
+  max-width: 100%;
+  transition: width 0.5s ease;
+  border: 1px solid #7d8a9f;
+}
+.lineFocus {
+  min-width: 6rem;
+  max-width: 100%;
+  transition: width 0.5s ease;
+
+  border: 1px solid white;
+}
+
+.social {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 10rem;
+  cursor: pointer;
+  height: 2rem;
+  width: 60%;
+}
+.hoverClass:hover {
+  transition: 0.5s;
+  font-weight: bolder;
+  width: 14rem !important;
+  color: white;
+}
+.sectionOnFocusClass {
+  transition: 0.5s;
+  font-weight: bolder;
+  width: 14rem !important;
+  color: white;
+}
+.sectionOnFocusClassExperience {
+  transition: 0.5s;
+  font-weight: bolder;
+  width: 16rem !important;
+  color: white;
+}
+.experienceHover:hover {
+  font-weight: bolder;
+  transition: 0.5s;
+  width: 16rem !important;
+  color: white;
+}
+
+.navTab:hover {
+  font-weight: bolder !important;
+  color: white;
+}
+
+.detail {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 15rem;
+  padding: 2rem;
+  padding-top: 10rem;
+}
+.experienceList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  padding-top: 5.5rem;
+}
+.aboutSection {
+  padding: 2rem;
+  padding-top: 11.4rem;
+  max-width: 50rem;
+}
+
+.projectList {
+  padding: 1rem;
+  padding-top: 5.5rem;
+  gap: 0.5rem;
+}
+.navTabMobile {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.navTabMobileAbout {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+.miniSection {
+  color: white;
+  font-weight: bolder;
+}
+.miniSectionDescription {
+  margin: 0.5rem 0 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .introduction {
+    flex-direction: column;
+  }
+  .detail {
+    position: relative;
+  }
+  .navigationSection {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+  .social {
+    margin-top: 1rem;
+
+    width: 30%;
+  }
+  .aboutSection {
+    margin-top: 4rem;
+  }
+  .navTabMobileAbout {
+    visibility: visible;
+    font-weight: bolder;
+    width: 1rem;
+    height: 1rem;
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+  .navTabMobile {
+    visibility: visible;
+    font-weight: bolder;
+    width: 1rem;
+    height: 1rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+  }
+}
