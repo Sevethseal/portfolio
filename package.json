@@ -43,5 +43,8 @@
     "src/**/*.{css,scss,md}": [
       "npx  prettier --write"
     ]
+  },
+  "engines": {
+    "node": "^18.18.0"
   }
 }
