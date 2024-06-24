@@ -1,6 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
-// next.config.mjs
-// updated
 const isGithubActions = process.env.GITHUB_ACTIONS || false
 
 let assetPrefix = ''
@@ -12,7 +9,7 @@ if (isGithubActions) {
   basePath = `/${repo}`
 }
 
-export default {
+module.exports = {
   assetPrefix: assetPrefix,
   basePath: basePath,
   trailingSlash: true,
