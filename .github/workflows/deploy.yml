@@ -34,7 +34,12 @@ jobs:
             git checkout --orphan gh-pages
           fi
 
-          rsync -av --delete ./out/ .
+          # Clear the directory but keep the .git folder
+          find . -maxdepth 1 ! -name '.git' ! -name '.' ! -name '..' -exec rm -rf {} +
+
+          # Copy the content from the out directory
+          cp -r ./out/* .
+
           touch .nojekyll
           git add -A
           if ! git diff --cached --exit-code; then
