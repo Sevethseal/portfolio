@@ -17,7 +17,7 @@ jobs:
         run: npm install
 
       - name: Build and Export (Next.js)
-        run: next build
+        run: node ./node_modules/next/dist/cli.js build
 
       - name: Deploy to GitHub Pages
         env:
