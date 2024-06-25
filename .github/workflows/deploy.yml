@@ -21,17 +21,23 @@ jobs:
 
       - name: Deploy to GitHub Pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}
-          git fetch origin gh-pages
-          git checkout gh-pages || git checkout --orphan gh-pages
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          
+          # Create gh-pages branch if it doesn't exist
+          if git show-ref --verify --quiet refs/heads/gh-pages; then
+            git checkout gh-pages
+          else
+            git checkout --orphan gh-pages
+          fi
+
           rsync -av --delete ./out/ .
           touch .nojekyll
           git add -A
-          if ! git diff-index --quiet HEAD; then
+          if ! git diff --cached --exit-code; then
             git commit -m "Deploy to GitHub Pages"
             git push origin gh-pages --force
           else
