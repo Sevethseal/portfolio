@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: '/next2024',
+  basePath: '',
   output: 'export',
   reactStrictMode: true,
   async redirects() {
