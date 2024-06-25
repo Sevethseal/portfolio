@@ -14,5 +14,4 @@ module.exports = {
   basePath: basePath,
   trailingSlash: true,
   output: 'export',
-  reactStrictMode: true,
 }
