@@ -7,7 +7,7 @@ import Image, { StaticImageData } from 'next/image'
 type Experience = {
   title: string
   timePeriod?: string
-  description: string
+  description: string[]
   technologies: string[]
   navigationLink: string
   image?: StaticImageData
@@ -58,7 +58,13 @@ const ExperienceComponent: React.FC<TileBaseProps> = (props: TileBaseProps) => {
         </div>
 
         <div className="experienceContent">
-          <p className="experienceParagraph">{experience?.description}</p>
+          <div className="experienceDescription">
+            <ul>
+              {experience?.description.map((point: string, index: number) => (
+                <li key={index}>{point}</li>
+              ))}
+            </ul>
+          </div>
           {
             <div className="experienceTagSection">
               {experience?.technologies.map((text: string) => (
