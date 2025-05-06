@@ -47,3 +47,10 @@
 .projectImageWrapper {
   padding: 1rem;
 }
+ul {
+  list-style: disc; /* default bullet point */
+  padding-left: 1.5rem; /* ensures bullets are indented */
+}
+.experienceDescription {
+  padding-bottom: 10px;
+}

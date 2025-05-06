@@ -2,6 +2,7 @@
 const nextConfig = {
   basePath: '',
   output: 'export',
+  images: { unoptimized: true },
   reactStrictMode: true,
   async redirects() {
     return [
