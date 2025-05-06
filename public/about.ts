@@ -62,7 +62,7 @@ const data = {
       navigationLink: 'https://www.qburst.com/en-de/',
     },
     {
-      title: 'Front-end Engineer Internship Full Time',
+      title: 'Front-end Engineer Internship Full Time, Niologic Gmbh',
       timePeriod: 'Aug 2024 - Oct 2024',
       description: [
         'Built responsive and dynamic user interfaces using React.',
